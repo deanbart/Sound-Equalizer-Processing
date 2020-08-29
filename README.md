@@ -15,3 +15,6 @@ Tutorial
 Select the song via the initializeVariables() method, in order for this application to work you
 must install the Processing Sound library. The user is able to interact with the song via a filter of
 choice (or a mix), by selecting the slider component accordingly.
+
+If the user wants to remove one of the filters applied, press the ‘CLEAR’ button. If you have
+more then one filter applied, you must click the button again accordingly.
