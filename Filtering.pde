@@ -5,23 +5,28 @@ int bands = 128; //Bands present for frequency spectrum
 float bandWidth = width/7; //Width of each band/rectangle
 float[] sum = new float [bands]; 
 float smoothFactor = 0.2; //Smoothens out the fall and rise of bands
-//Global components and Booleans
+
+//Global components 
 SoundFile music;
 FFT fft;
+
 LowPass lowPass;
 HighPass highPass;
 BandPass bandPass;
 FilterSlider lowSlider;
 FilterSlider highSlider;
+
 Button playbutton;
 Button submitbutton;
 Button clearbutton;
+
 TextBox lowPassValue;
 TextBox highPassValue;
 TextBox lowFreqBand;
 TextBox highFreqBand;
+
 boolean isPlaying = false;
-boolean lowPassOn = false; //Checks whether lowPass filter is on
+boolean lowPassOn = false; 
 boolean highPassOn = false;
 boolean bandPassOn = false;
 
@@ -33,13 +38,13 @@ void setup() {
 }
 
 void initializeVariables() {
-  music = new SoundFile(this, "Song1.wav"); //Switch between Song1 and Song2 
+  music = new SoundFile(this, "Song1.wav"); 
   fft = new FFT(this, bands); //instance of fft object, used to analyze the spectrum of frequencies found in the song
-  lowPass = new LowPass(this);  //instace of the low Pass filter object
+  lowPass = new LowPass(this);  //instance of the low Pass filter object
   highPass = new HighPass(this);
   bandPass = new BandPass(this);
   lowSlider = new FilterSlider(width/6, "Low Pass"); // slider for low pass filter
-  highSlider = new FilterSlider(width/4+150, "High Pass"); //high pass filter
+  highSlider = new FilterSlider(width/4+150, "High Pass"); 
   playbutton = new Button(50, "Play", "Pause");
   submitbutton = new Button(width/1.5+156, "Submit", "Submit");
   clearbutton = new Button(width/1.5 + 250, "CLEAR", "CLEAR");
@@ -91,7 +96,7 @@ void draw() {
   }
 }
 
-void visualize() {  //Processing's Sound tutorial (Example 5, 6:Audio Analysis)
+void visualize() { 
   fft.analyze(); //Calculates the frequency spectrum which is returned as an array. Accesed via fft.spectrum[]
   for (int i = 0; i < sum.length; i++) {
     //The sum[] array utilized smoothen out the values of the spectrum[]
